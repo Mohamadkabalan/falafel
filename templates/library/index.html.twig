@@ -1,0 +1,29 @@
+{% extends'base.html.twig' %}
+{% block title  %}Symphart Libraries{% endblock %}
+{% block body %}
+    {% if libraries %}
+        <table id="books" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Library Name</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for library in libraries %}
+                <tr>
+                    <td>{{ library.Name }}</td>
+                    <td>
+                        <a href="/symphart/public/library/{{ library.ID }}" class="btn btn-dark">Show</a>
+                        <a href="/symphart/public/library/edit/{{ library.ID }}" class="btn btn-light">Edit</a>
+                        <a href="/symphart/public/library/delete/{{ library.ID }}" class="btn btn-danger delete-book btn_delete" data-id="{{ library.ID }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No libraries to display</p>
+    {% endif %}
+{% endblock %}
+

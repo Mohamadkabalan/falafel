@@ -1,0 +1,29 @@
+{% extends'base.html.twig' %}
+{% block title  %}Symphart Book{% endblock %}
+{% block body %}
+    {% if books %}
+    <table id="books" class="table table-striped">
+        <thead>
+        <tr>
+            <th>Book Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.Name }}</td>
+                <td>
+                    <a href="/symphart/public/book/{{ book.ID }}" class="btn btn-dark">Show</a>
+                    <a href="/symphart/public/book/edit/{{ book.ID }}" class="btn btn-light">Edit</a>
+                    <a href="/symphart/public/book/delete/{{ book.ID }}" class="btn btn-danger delete-book btn_delete" data-id="{{ book.ID }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No books to display</p>
+{% endif %}
+{% endblock %}
+

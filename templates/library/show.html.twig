@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ library.Name }}{% endblock %}
+
+{% block body %}
+    <h1>Name: {{ library.Name }}</h1>
+    <p>Address: {{ library.Address }}</p>
+    <img src="../../web/uploads/brochures/{{ library.Image }}" style="height: 200px;width:300px;">
+    <hr>
+    <a href="/symphart/public/">Go Back</a>
+{% endblock %}
